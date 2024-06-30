@@ -14,7 +14,7 @@ def predicts(x):
     data = load_model("xor-keras.pkl")
     functional_nn = pi.functional_mlp()
 
-# Load weights and biases into the model
+
     for layer in functional_nn.layers:
         if layer.name in data:
             layer.set_weights(data[layer.name])
