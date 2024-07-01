@@ -30,7 +30,7 @@ def training_loop():
                 loss_func = binary_cross_entropy_loss(Y_pred,Y_train_mb)
 
             gradients = tape.gradient(loss_func,functional_nn.trainable_weights)
-            optimizer.apply_gradients(zip(gradients,functional_nn.trainable_weights))
+            config.optimizer.apply_gradients(zip(gradients,functional_nn.trainable_weights))
             print("Epoch # {}, Loss Function Value = {}".format(e+1,loss_func))
             if loss_func < 0.0001:
                 break
